@@ -14,7 +14,30 @@ Read our [guidelines for writing a good changelog entry](https://github.com/biom
 
 ### CLI
 
+#### New features
+
+- The CLI now supports nested `.gitignore` files during the traversal. The users don't need to do anything to avail of this feature. Contributed by @ematipico
+
+- Fix [#709](https://github.com/biomejs/biome/issues/709), by correctly parsing allow list patterns in `.gitignore` files. Contributed by @ematipico
+
+- Fix [#805](https://github.com/biomejs/biome/issues/805), by correctly parsing these kind of patterns. Contributed by @ematipico
+
 ### Configuration
+
+##### New features
+
+- Users can specify git ignore patterns inside `ignore` and `include` properties, for example it's possible to **allow list** globs of files using the `!` character:
+
+  ```json5
+  {
+    "files": {
+      "ignore": [
+        "node_modules/**",
+        "!**/dist/**" // this is now accepted and allow list files inside the `dist` folder
+      ]
+    }
+  }
+  ```
 
 ### Editors
 
